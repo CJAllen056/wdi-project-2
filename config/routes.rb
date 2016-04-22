@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get 'user/index'
+	root "statics#home"
+	
+	devise_for :users
+	resources :users
 
-  get 'user/show'
+	resources :groups
 
-  get 'user/edit'
 
-  get 'user/update'
-
-  root "statics#home"
 end
