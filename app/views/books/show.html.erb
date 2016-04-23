@@ -1,0 +1,21 @@
+<ul>
+	<li><img src="<%= @book.cover_image %>"></li>
+	<li><%= @book.title %></li>
+	<li><%= @book.author %></li>
+	<li><%= @book.release_date %></li>
+	<li><%= @book.publisher %></li>
+	<li><%= @book.description %></li>
+</ul>
+
+<ul>
+	<li>
+		<% @book.groups do |group| %>
+		<% if group.current_book_id == @book.id && group.group_type != "hidden" %>
+		<ul>
+			<li><img src="<%= group.image %>"></li>
+			<li><%= group.name %></li>
+		</ul>
+		<% end %>
+		<% end %>
+	</li>
+</ul>

@@ -150,21 +150,24 @@ end
 		description: "We are a group of sci-fi fiction enthusiasts who mainly read new sci-fi releases as well as some classics.",
 		image: "http://www.edugeek.net/attachments/forums/general-chat/22993d1393250946-logo-engraving-hitchhikers-guide-galaxy-logo.png",
 		offline: false,
-		group_type: "public"
+		group_type: "public",
+		current_book_id: 2
 	},
 	{
 		name: "London Womens Reading Group",
 		description: "This group is exclusively for women. We read a wide range of genres and hold regular voting sessions to choose which book we will be reading.",
 		image: "http://1.bp.blogspot.com/-zMyWEpEUrbo/TVtTtp56avI/AAAAAAAAAAM/pHzfIhzthZ4/s1600/bookclub.jpg",
 		offline: true,
-		group_type: "private"
+		group_type: "private",
+		current_book_id: 3
 	},
 	{
 		name: "Book Club Staff Group",
 		description: "Private group for staff members at The Book Club",
 		image: "",
 		offline: true,
-		group_type: "hidden"
+		group_type: "hidden",
+		current_book_id: 4
 	}
 ].each do |group|
 	Group.create!(group)
