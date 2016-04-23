@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20160422153130) do
     t.text     "description"
     t.string   "image"
     t.boolean  "offline"
-    t.string   "group_type"
+    t.string   "group_type" # private, public or hidden
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
