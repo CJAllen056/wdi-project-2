@@ -1,2 +1,30 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<ul>
+	<li><img src="<%= @user.image %>"></li>
+	<li><%= @user.username %></li>
+	<li><%= @user.fname %> <%= @user.lname %></li>
+	<li><%= @user.email %></li>
+</ul>
+
+<ul>
+	<li>
+	<% @user.books.each do |book| %>
+	<ul>
+		<li><img src="<%= book.cover_image %>"></li>
+		<li><%= book.title %></li>
+		<li><%= book.author %></li>
+		<li><%= book.author %></li>
+	</ul>
+	<% end %>
+	</li>
+</ul>
+
+<ul>
+	<li>
+		<% @user.groups.each do |group| %>
+		<ul>
+			<li><img src="<%= group.image %>"></li>
+			<li><%= group.name %></li>
+		</ul>
+		<% end %>
+	</li>
+</ul>
