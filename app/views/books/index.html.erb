@@ -1,2 +1,21 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<%= search_form_for @q do |f| %>
+  <p>
+    <%= f.label :title_or_author_cont %>
+    <%= f.text_field :title_or_author_cont %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<ul>
+	<li>
+		<% @books.each do |book| %>
+		<ul>
+			<li><img src="<%= book.cover_image %>"></li>
+			<li><%= book.title %></li>
+			<li><%= book.author %></li>
+		</ul>
+		<% end %>
+	</li>
+</ul>

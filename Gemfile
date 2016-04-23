@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 ruby "2.2.3"
 
+gem "ransack"
+
 gem "rails", "4.2.6"
 gem "pg", "~> 0.15"
 gem "sass-rails", "~> 5.0"

@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
 
    def index
-      @books = Book.all
+      @q = Book.search(params[:q])
+      @books = @q.result(distinct: true)
    end
 
    def show
@@ -24,3 +25,4 @@ class BooksController < ApplicationController
    end
 
 end
+# 
