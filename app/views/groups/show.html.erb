@@ -8,8 +8,9 @@
 	<% end %>
 	<li><%= @group.group_type %></li>
 	<li><%= @group.description %></li>
-
+	<li><%= link_to "Edit Group", edit_group_path %></li>
 </ul>
+
 
 <% if @group.current_book_id %>
 <ul>
