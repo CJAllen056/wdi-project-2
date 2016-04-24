@@ -1,1 +1,33 @@
-new group
+<h1>List Service</h1>
+<%= form_for @group do |f| %>
+<% if @group.errors.any? %>
+<% for message in @group.errors.full_messages %>
+<div class="alert alert-danger" role="alert">
+  <%= message %>
+</div>
+<% end %>
+<% end %>
+
+<fieldset class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</fieldset>
+<fieldset class="field">
+<%= f.label :group_image %><br />
+<%= f.file_field :group_image %>
+</fieldset>
+<fieldset class="form-group">
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</fieldset>
+<fieldset class="form-group">
+  <%= f.label :offline %>
+  <%= f.radio_button :offline, true %>
+</fieldset>
+<fieldset class="form-group">
+  <%= f.label :group_type %>
+  <%= f.select :group_type, ["Public", "Private", "Hidden"] %>
+</fieldset>
+<%= f.submit class: "btn btn-primary" %>
+
+<% end %>

@@ -24,4 +24,9 @@ class BooksController < ApplicationController
    def delete
    end
 
+   private
+      def book_params
+         params.require(:book).permit(:title, :author, :release_date, :description, :publisher, :cover_image)
+      end
+
 end

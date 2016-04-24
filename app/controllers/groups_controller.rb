@@ -11,9 +11,17 @@ class GroupsController < ApplicationController
 	end
 
 	def new
+		@group = Group.new
 	end
 
 	def create
+		@group = current_user.groups.new(group_params)
+		if @group.save
+			flash[:success] = "Your group has now been created!"
+			redirect_to services_path
+		else
+			render "new"
+		end 
 	end
 
 	def edit
@@ -21,5 +29,10 @@ class GroupsController < ApplicationController
 
 	def delete
 	end
+
+	private
+		def group_params
+			params.require(:group).permit(:name, :description, :group_image, :offline, :group_type, :current_book_id)
+		end
 
 end
