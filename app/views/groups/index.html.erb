@@ -14,7 +14,7 @@
 		<% if group.group_type != "hidden" %>
 		<ul>
 			<li><img src="<%= group.group_image %>"></li>
-			<li><%= group.name %></li>
+			<li><a href="/groups/<%= group.id %>"><%= group.name %></a></li>
 			<% if group.offline %>
 			<li>Offline</li>
 			<% else %>

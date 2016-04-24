@@ -9,7 +9,7 @@
 
 <ul>
 	<li>
-		<% @book.groups do |group| %>
+		<% @book.groups.each do |group| %>
 		<% if group.current_book_id == @book.id && group.group_type != "hidden" %>
 		<ul>
 			<li><img src="<%= group.group_image %>"></li>
