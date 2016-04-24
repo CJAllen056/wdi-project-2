@@ -3,40 +3,57 @@ Group.destroy_all
 Book.destroy_all
 Genre.destroy_all
 
-[
-	{ name: "Art, Architecture and Photography" },
-	{ name: "Biography" },
-	{ name: "Business, Finance and Law" },
-	{ name: "Children's Books" },
-	{ name: "Comics and Graphic Novels" },
-	{ name: "Computing and Internet" },
-	{ name: "Crime, Thrillers and Mystery" },
-	{ name: "Education Studies and Teaching" },
-	{ name: "Fiction" },
-	{ name: "Food and Drink" },
-	{ name: "Gay and Lesbian" },
-	{ name: "Health, Family and Lifestyle" },
-	{ name: "History" },
-	{ name: "Home and Garden" },
+genres = [
+	{ name: "Adventure Stories & Action" }, #0
+	{ name: "Anthologies" },
+	{ name: "Biographical Fiction" },
+	{ name: "Classics" },
+	{ name: "Contemporary Fiction" },
+	{ name: "Crime, Thrillers & Mystery" }, #5
+	{ name: "Erotica" },
+	{ name: "Family Sagas" },
+	{ name: "Fantasy" },
+	{ name: "Film & Television Tie-In" },
+	{ name: "Gay & Lesbian" }, #10
+	{ name: "Historical" },
 	{ name: "Horror" },
 	{ name: "Humour" },
-	{ name: "Languages" },
-	{ name: "Mind, Body and Spirit" },
-	{ name: "Music, Stage and Screen" },
-	{ name: "Poetry, Drama and Criticism" },
-	{ name: "Religion and Spirituality" },
+	{ name: "Lad Lit" },
+	{ name: "Literary Fiction" }, #15
+	{ name: "Medical" },
+	{ name: "Metaphysical & Visionary" },
+	{ name: "Myths & Fairy Tales" },
+	{ name: "Poetry & Drama" },
+	{ name: "Political" }, #20
+	{ name: "Psychological" },
+	{ name: "Religious & Inspirational" },
 	{ name: "Romance" },
-	{ name: "Science and Nature" },
-	{ name: "Science Fiction and Fantasy" },
-	{ name: "Society, Politics and Philosophy" },
-	{ name: "Sports, Hobbies and Games" },
-	{ name: "Travel and Holiday" },
-	{ name: "Young Adult" }
-].each do |genre|
-	Genre.create!(genre)
+	{ name: "Science Fiction" },
+	{ name: "Short Stories" }, #25
+	{ name: "Sport" },
+	{ name: "War" },
+	{ name: "Westerns" },
+	{ name: "Women Writers & Fiction" },
+	{ name: "Biography" }, #30
+	{ name: "Comics & Graphic Novels" },
+	{ name: "Food & Drink" },
+	{ name: "Music, Stage & Screen" },
+	{ name: "Science & Nature" },
+	{ name: "Society, Politics & Philosophy" }, #35
+	{ name: "Sport, Hobbies & Games" },
+	{ name: "Young Adult" },
+	{ name: "Children's Books" },
+	{ name: "Fiction" },
+	{ name: "Non-Fiction" } #40
+]
+
+modelled_genres = []
+genres.each do |genre|
+	modelled_genre = Genre.create!(genre)
+	modelled_genres << modelled_genre
 end
 
-[
+books = [
 	{
 		title: "Harry Potter and the Goblet of Fire",
 		author: "J K Rowling",
@@ -81,11 +98,15 @@ But we have one advantage: we get to make the first move. Will it be possible to
 		publisher: "OUP Oxford",
 		cover_image: "https://images-na.ssl-images-amazon.com/images/I/51NCmQOBKLL.jpg"
 	}
-].each do |book|
-	Book.create!(book)
+]
+
+modelled_books = []
+books.each do |book|
+	modelled_book = Book.create!(book)
+	modelled_books << modelled_book
 end
 
-[
+users = [
 	{
 		username: "CJAllen056",
 		profile_picture: "https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/11241030_10156133174470507_7445119115865259163_o.jpg",
@@ -140,11 +161,15 @@ end
 		email: "rkelly@rkelly.com",
 		password: "password"
 	}
-].each do |user|
-	User.create!(user)
+]
+
+modelled_users = []
+users.each do |user|
+	modelled_user = User.create!(user)
+	modelled_users << modelled_user
 end
 
-[
+groups = [
 	{
 		name: "Sci-Fi Readers Group",
 		description: "We are a group of sci-fi fiction enthusiasts who mainly read new sci-fi releases as well as some classics.",
@@ -169,13 +194,79 @@ end
 		group_type: "hidden",
 		current_book_id: 4
 	}
-].each do |group|
-	Group.create!(group)
+]
+
+modelled_groups = []
+groups.each do |group|
+	modelled_group = Group.create!(group)
+	modelled_groups << modelled_group
 end
 
 
+modelled_books[0].genres << modelled_genres[0]
+modelled_books[0].genres << modelled_genres[8]
+modelled_books[0].genres << modelled_genres[37]
+modelled_books[0].genres << modelled_genres[38]
+modelled_books[0].genres << modelled_genres[39]
 
+modelled_books[1].genres << modelled_genres[3]
+modelled_books[1].genres << modelled_genres[20]
+modelled_books[1].genres << modelled_genres[24]
+modelled_books[1].genres << modelled_genres[39]
 
+modelled_books[2].genres << modelled_genres[2]
+modelled_books[2].genres << modelled_genres[3]
+modelled_books[2].genres << modelled_genres[15]
+modelled_books[2].genres << modelled_genres[29]
+modelled_books[2].genres << modelled_genres[39]
+
+modelled_books[3].genres << modelled_genres[4]
+modelled_books[3].genres << modelled_genres[11]
+modelled_books[3].genres << modelled_genres[20]
+modelled_books[3].genres << modelled_genres[27]
+
+modelled_books[4].genres << modelled_genres[34]
+modelled_books[4].genres << modelled_genres[40]
+
+modelled_books[0].users << modelled_users[0]
+modelled_books[0].users << modelled_users[1]
+modelled_books[0].users << modelled_users[3]
+
+modelled_books[1].users << modelled_users[0]
+modelled_books[1].users << modelled_users[2]
+modelled_books[1].users << modelled_users[4]
+
+modelled_books[2].users << modelled_users[1]
+modelled_books[2].users << modelled_users[2]
+modelled_books[2].users << modelled_users[5]
+
+modelled_books[3].users << modelled_users[3]
+modelled_books[3].users << modelled_users[4]
+modelled_books[3].users << modelled_users[5]
+
+modelled_books[4].users << modelled_users[0]
+
+modelled_books[0].groups << modelled_groups[1]
+modelled_books[0].groups << modelled_groups[2]
+
+modelled_books[1].groups << modelled_groups[0]
+
+modelled_books[2].groups << modelled_groups[1]
+
+modelled_books[4].groups << modelled_groups[2]
+
+modelled_groups[0].users << modelled_users[0]
+modelled_groups[0].users << modelled_users[1]
+modelled_groups[0].users << modelled_users[3]
+modelled_groups[0].users << modelled_users[4]
+modelled_groups[0].users << modelled_users[5]
+
+modelled_groups[1].users << modelled_users[1]
+modelled_groups[1].users << modelled_users[2]
+
+modelled_groups[2].users << modelled_users[0]
+modelled_groups[2].users << modelled_users[2]
+modelled_groups[2].users << modelled_users[3]
 
 
 

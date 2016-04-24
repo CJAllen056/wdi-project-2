@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160423171718) do
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "image"
+    t.string   "group_image"
     t.boolean  "offline"
     t.string   "group_type"
     t.datetime "created_at",      null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20160423171718) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
-    t.string   "image"
+    t.string   "profile_picture"
     t.string   "fname"
     t.string   "lname"
     t.string   "user_type"

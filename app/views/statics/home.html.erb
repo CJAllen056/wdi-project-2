@@ -1,2 +1,31 @@
-<h1>Statics#home</h1>
-<p>Find me in app/views/statics/home.html.erb</p>
+<ul>
+	<li>
+		<% @groups.each do |group| %>
+		<% if group.group_type != "hidden" %>
+		<ul>
+			<li><img src="<%= group.group_image %>"></li>
+			<li><%= group.name %></li>
+			<% if group.offline %>
+			<li>Offline</li>
+			<% else %>
+			<li>Online</li>
+			<% end %>
+			<li><%= group.group_type %></li>
+		</ul>
+		<% end %>
+		<% end %>
+	</li>
+</ul>
+
+<ul>
+	<li>
+		<% @books.each do |book| %>
+		<ul>
+			<li><img src="<%= book.cover_image %>"></li>
+			<li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
+			<li><%= book.author %></li>
+			<li><%= book.description %></li>
+		</ul>
+		<% end %>
+	</li>
+</ul>
