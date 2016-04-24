@@ -1,0 +1,36 @@
+<%= form_for @book do |f| %>
+<% if @book.errors.any? %>
+<% for message in @book.errors.full_messages %>
+<div class="alert alert-danger" role="alert">
+  <%= message %>
+</div>
+<% end %>
+<% end %>
+
+<fieldset class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</fieldset>
+<fieldset class="field">
+<%= f.label :author %><br />
+<%= f.text_field :author %>
+</fieldset>
+<fieldset class="form-group">
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</fieldset>
+<fieldset class="field">
+<%= f.label :release_date %><br />
+<%= f.number_field :release_date %>
+</fieldset>
+<fieldset class="form-group">
+  <%= f.label :publisher %>
+  <%= f.text_field :publisher %>
+</fieldset>
+<fieldset class="form-group">
+  <%= f.label :cover_image %>
+  <%= f.file_field :cover_image %>
+</fieldset>
+<%= f.submit class: "btn btn-primary" %>
+
+<% end %>
