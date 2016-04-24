@@ -7,7 +7,9 @@ class GroupsController < ApplicationController
 
 	def show
 		@group = Group.find(params[:id])
-		@current_book = Book.find(@group.current_book_id)
+		if @group.current_book_id
+			@current_book = Book.find(@group.current_book_id)
+		end
 	end
 
 	def new
@@ -18,7 +20,7 @@ class GroupsController < ApplicationController
 		@group = current_user.groups.new(group_params)
 		if @group.save
 			flash[:success] = "Your group has now been created!"
-			redirect_to services_path
+			redirect_to groups_path
 		else
 			render "new"
 		end 

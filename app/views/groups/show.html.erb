@@ -11,6 +11,7 @@
 
 </ul>
 
+<% if @group.current_book_id %>
 <ul>
 	<li><img src="<%= @current_book.cover_image %>"></li>
 	<li><%= @current_book.title %></li>
@@ -19,6 +20,9 @@
 	<li><%= @current_book.publisher %></li>
 	<li><%= @current_book.description %></li>
 </ul>
+<% else %>
+<a href="/books">Select a book to read</a>
+<% end %>
 
 <ul>
 	<li>
