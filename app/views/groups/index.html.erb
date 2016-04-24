@@ -13,7 +13,7 @@
 		<% @groups.each do |group| %>
 		<% if group.group_type != "hidden" %>
 		<ul>
-			<li><img src="<%= group.image %>"></li>
+			<li><img src="<%= group.group_image %>"></li>
 			<li><%= group.name %></li>
 			<% if group.offline %>
 			<li>Offline</li>

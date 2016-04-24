@@ -88,7 +88,7 @@ end
 [
 	{
 		username: "CJAllen056",
-		image: "https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/11241030_10156133174470507_7445119115865259163_o.jpg",
+		profile_picture: "https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xat1/t31.0-8/11241030_10156133174470507_7445119115865259163_o.jpg",
 		fname: "Chris",
 		lname: "Allen",
 		user_type: "admin",
@@ -97,7 +97,7 @@ end
 	},
 	{
 		username: "BookLover12",
-		image: "http://orig03.deviantart.net/4d9a/f/2012/339/9/6/book_lover_by_alephunky-d5n51jc.jpg",
+		profile_picture: "http://orig03.deviantart.net/4d9a/f/2012/339/9/6/book_lover_by_alephunky-d5n51jc.jpg",
 		fname: "Jemima",
 		lname: "Brown",
 		user_type: "user",
@@ -106,7 +106,7 @@ end
 	},
 	{
 		username: "CBenn",
-		image: "https://avatars.slack-edge.com/2016-01-31/19922600161_4eb3a2bbbf1de91b2400_1024.jpg",
+		profile_picture: "https://avatars.slack-edge.com/2016-01-31/19922600161_4eb3a2bbbf1de91b2400_1024.jpg",
 		fname: "Caroline",
 		lname: "Benn",
 		user_type: "user",
@@ -115,7 +115,7 @@ end
 	},
 	{
 		username: "OHoldme",
-		image: "https://avatars.slack-edge.com/2016-03-10/25854506177_15f336f2c17397f04a3c_1024.jpg",
+		profile_picture: "https://avatars.slack-edge.com/2016-03-10/25854506177_15f336f2c17397f04a3c_1024.jpg",
 		fname: "Oliver",
 		lname: "Holden",
 		user_type: "user",
@@ -124,7 +124,7 @@ end
 	},
 	{
 		username: "Usher21",
-		image: "http://science-all.com/images/usher/usher-01.jpg",
+		profile_picture: "http://science-all.com/images/usher/usher-01.jpg",
 		fname: "Usher",
 		lname: "Raymond",
 		user_type: "user",
@@ -133,7 +133,7 @@ end
 	},
 	{
 		username: "Kells",
-		image: "http://news.hiphopearly.com/wp-content/uploads/2015/11/R-Kelly.jpg",
+		profile_picture: "http://news.hiphopearly.com/wp-content/uploads/2015/11/R-Kelly.jpg",
 		fname: "Robert",
 		lname: "Kelly",
 		user_type: "user",
@@ -148,7 +148,7 @@ end
 	{
 		name: "Sci-Fi Readers Group",
 		description: "We are a group of sci-fi fiction enthusiasts who mainly read new sci-fi releases as well as some classics.",
-		image: "http://www.edugeek.net/attachments/forums/general-chat/22993d1393250946-logo-engraving-hitchhikers-guide-galaxy-logo.png",
+		group_image: "http://www.edugeek.net/attachments/forums/general-chat/22993d1393250946-logo-engraving-hitchhikers-guide-galaxy-logo.png",
 		offline: false,
 		group_type: "public",
 		current_book_id: 2
@@ -156,7 +156,7 @@ end
 	{
 		name: "London Womens Reading Group",
 		description: "This group is exclusively for women. We read a wide range of genres and hold regular voting sessions to choose which book we will be reading.",
-		image: "http://1.bp.blogspot.com/-zMyWEpEUrbo/TVtTtp56avI/AAAAAAAAAAM/pHzfIhzthZ4/s1600/bookclub.jpg",
+		group_image: "http://1.bp.blogspot.com/-zMyWEpEUrbo/TVtTtp56avI/AAAAAAAAAAM/pHzfIhzthZ4/s1600/bookclub.jpg",
 		offline: true,
 		group_type: "private",
 		current_book_id: 3
@@ -164,7 +164,7 @@ end
 	{
 		name: "Book Club Staff Group",
 		description: "Private group for staff members at The Book Club",
-		image: "",
+		group_image: "",
 		offline: true,
 		group_type: "hidden",
 		current_book_id: 4

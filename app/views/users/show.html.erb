@@ -1,5 +1,5 @@
 <ul>
-	<li><img src="<%= @user.image %>"></li>
+	<li><img src="<%= @user.profile_picture %>"></li>
 	<li><%= @user.username %></li>
 	<li><%= @user.fname %> <%= @user.lname %></li>
 	<li><%= @user.email %></li>
@@ -22,7 +22,7 @@
 	<li>
 		<% @user.groups.each do |group| %>
 		<ul>
-			<li><img src="<%= group.image %>"></li>
+			<li><img src="<%= group.group_image %>"></li>
 			<li><%= group.name %></li>
 		</ul>
 		<% end %>

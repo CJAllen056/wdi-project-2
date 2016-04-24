@@ -12,7 +12,7 @@
 		<% @book.groups do |group| %>
 		<% if group.current_book_id == @book.id && group.group_type != "hidden" %>
 		<ul>
-			<li><img src="<%= group.image %>"></li>
+			<li><img src="<%= group.group_image %>"></li>
 			<li><%= group.name %></li>
 		</ul>
 		<% end %>

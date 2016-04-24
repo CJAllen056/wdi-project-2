@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 ruby "2.2.3"
 
+gem "carrierwave", "0.10.0"
 gem "ransack"
 
 gem "rails", "4.2.6"

@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
 
 	has_and_belongs_to_many :groups
 	has_and_belongs_to_many :books
+
+	mount_uploader :profile_picture, ProfilePictureUploader
 end

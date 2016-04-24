@@ -3,7 +3,7 @@ class CreateGroups < ActiveRecord::Migration
     create_table :groups do |t|
       t.string :name
       t.text :description
-      t.string :image
+      t.string :group_image
       t.boolean :offline
       t.string :group_type
 
