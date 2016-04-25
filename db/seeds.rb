@@ -2,6 +2,7 @@ User.destroy_all
 Group.destroy_all
 Book.destroy_all
 Genre.destroy_all
+Subscription.destroy_all
 
 genres = [
 	{ name: "Adventure Stories & Action" }, #0
@@ -202,7 +203,6 @@ groups.each do |group|
 	modelled_groups << modelled_group
 end
 
-
 # LINKING MODELS
 
 modelled_books[0].genres << modelled_genres[0]
@@ -257,18 +257,24 @@ modelled_books[2].groups << modelled_groups[1]
 
 modelled_books[4].groups << modelled_groups[2]
 
-modelled_groups[0].users << modelled_users[0]
-modelled_groups[0].users << modelled_users[1]
-modelled_groups[0].users << modelled_users[3]
-modelled_groups[0].users << modelled_users[4]
-modelled_groups[0].users << modelled_users[5]
+subscriptions = [
+	{ user_id: 1, group_id: 1, user_type: "founder" },
+	{ user_id: 2, group_id: 1, user_type: "user" },
+	{ user_id: 4, group_id: 1, user_type: "admin" },
+	{ user_id: 5, group_id: 1, user_type: "user" },
+	{ user_id: 6, group_id: 1, user_type: "user" },
+	{ user_id: 2, group_id: 2, user_type: "user" },
+	{ user_id: 3, group_id: 2, user_type: "founder" },
+	{ user_id: 1, group_id: 3, user_type: "founder" },
+	{ user_id: 3, group_id: 3, user_type: "user" },
+	{ user_id: 4, group_id: 3, user_type: "user" }
+]
 
-modelled_groups[1].users << modelled_users[1]
-modelled_groups[1].users << modelled_users[2]
-
-modelled_groups[2].users << modelled_users[0]
-modelled_groups[2].users << modelled_users[2]
-modelled_groups[2].users << modelled_users[3]
+modelled_subscriptions = []
+subscriptions.each do |subscription|
+	modelled_subscription = Subscription.create!(subscription)
+	modelled_subscriptions << modelled_subscription
+end
 
 # ADDING PICS TO MODELS
 
