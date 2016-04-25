@@ -11,7 +11,7 @@
 	<li><%= link_to "Edit Group", edit_group_path %></li>
 </ul>
 
-
+<h1>Current Book</h1>
 <% if @group.current_book_id %>
 <ul>
 	<li><img src="<%= @current_book.cover_image %>"></li>
@@ -25,15 +25,22 @@
 <a href="/books">Select a book to read</a>
 <% end %>
 
+<h1>All Books</h1>
 <ul>
-	<li>
-		<% @group.books.each do |book| %>
-		<li><img src="<%= book.cover_image %>"></li>
-		<li><%= book.title %></li>
-		<li><%= book.author %></li>
-		<li><%= book.release_date %></li>
-		<li><%= book.publisher %></li>
-		<li><%= book.description %></li>
-		<% end %>
-	</li>
+	<% @group.books.each do |book| %>
+	<li><img src="<%= book.cover_image %>"></li>
+	<li><%= book.title %></li>
+	<li><%= book.author %></li>
+	<li><%= book.release_date %></li>
+	<li><%= book.publisher %></li>
+	<li><%= book.description %></li>
+	<% end %>
+</ul>
+
+<ul>
+	<% @group.users.each do |user| %>
+	<li><img src= "<%= user.profile_picture %>"></li>
+	<li><%= user.username %></li>
+	<li><%= user.fname %> <% user.lname %></li>
+	<% end %>
 </ul>
