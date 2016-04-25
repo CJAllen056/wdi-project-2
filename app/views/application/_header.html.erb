@@ -1,28 +1,44 @@
-<div class="top-bar">
-	<% if user_signed_in? %>
-	<div class="top-bar-left">
-		<ul class="menu">
-			<li><%= link_to "Book Club", root_path, class: "menu-text" %></li>
-			<li><%= link_to "Create Group", new_group_path %></li>
+<nav class="top-bar" data-topbar role="navigation">
+	<ul class="title-area">
+		<li class="name">
+			<h1><%= link_to "Book Club", root_path %></h1>
+		</li>
+		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	</ul>
+	<section class="top-bar-section">
+		<ul class="left">
+			<li class="has-dropdown">
+				<a href="#">Groups</a>
+				<ul class="dropdown">
+					<li><%= link_to "Groups", groups_path %></li>
+					<li><%= link_to "Create Group", new_group_path %></li>
+				</ul>
+			</li>
+			<li class="has-dropdown">
+				<a href="#">Books</a>
+				<ul class="dropdown">
+					<li><%= link_to "Books", books_path %></li>
+					<li><%= link_to "Add Book", new_book_path %></li>
+				</ul>
+			</li>
 		</ul>
-	</div>
-	<div class="top-bar-right">
-		<ul>
-			<li>
-				<a href="#">Account</a>
-				<ul class="menu vertical">
+	<% if user_signed_in? %>
+		<ul class="right">
+			<li class="has-dropdown">
+				<a href="#"><%= current_user.username %></a>
+				<ul class="dropdown">
 					<li><%= link_to "My Account", user_path(current_user) %></li>
+					<li><%= link_to "Edit Account", edit_user_path(current_user) %></li>
 					<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 				</ul>
 			</li>
 		</ul>
-	</div>
+	</section>
 	<% else %>
-	<ul class="top-bar-left">
-		<li><%= link_to "Log In", new_user_session_path %></li>
-		<li><%= link_to "Register", new_user_registration_path %></li>
-		<li><%= link_to "Groups", groups_path %></li>
-		<li><%= link_to "Books", books_path %></li>
-	</ul>
+		<ul class="right">
+			<li><%= link_to "Log In", new_user_session_path %></li>
+			<li><%= link_to "Register", new_user_registration_path %></li>
+		</ul>
+	</section>
 	<% end %>
-</div>
+</nav>
