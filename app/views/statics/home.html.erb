@@ -1,31 +1,34 @@
-<ul>
-	<li>
-		<% @groups.each do |group| %>
-		<% if group.group_type != "hidden" %>
-		<ul>
-			<li><img src="<%= group.group_image %>"></li>
-			<li><%= group.name %></li>
-			<% if group.offline %>
-			<li>Offline</li>
-			<% else %>
-			<li>Online</li>
-			<% end %>
-			<li><%= group.group_type %></li>
-		</ul>
-		<% end %>
-		<% end %>
-	</li>
-</ul>
+<div class="row">
+	<h1>Popular Groups</h1>
+	<% @groups.each do |group| %>
+	<% if group.group_type != "hidden" %>
+	<div class="medium-4 columns">
+		<div class="item-wrapper">
+			<div class="image-wrapper">
+				<a href="/groups/<%= group.id %>"><img src="<%= group.group_image %>"></a>
+				<a href="/groups/<%= group.id %>"><h3><%= group.name %></h3></a>
+				<% if group.offline %>
+				<h6>Offline,
+				<% else %>
+				<h6>Online,
+				<% end %>
+				<%= group.group_type %></h6>
+				<h6><%= group.subscriptions.count %> members</h6>
+			</div>
+		</div>
+	</div>
+	<% end %>
+	<% end %>
+</div>
 
-<ul>
-	<li>
-		<% @books.each do |book| %>
-		<ul>
-			<li><img src="<%= book.cover_image %>"></li>
+<div class="row group-previous-books">
+	<% @books.each do |book| %>
+	<div class="medium-4 columns">
+		<div class="item-wrapper">
+			<li class="book-image"><img src="<%= book.cover_image %>"></li>
 			<li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
 			<li><%= book.author %></li>
-			<li><%= book.description %></li>
-		</ul>
-		<% end %>
-	</li>
-</ul>
+		</div>
+	</div>
+	<% end %>
+</div>
