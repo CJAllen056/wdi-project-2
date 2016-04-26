@@ -11,39 +11,21 @@
 <div class="row">
 	<% @groups.each do |group| %>
 	<% if group.group_type != "hidden" %>
-	<div class="small-4 columns">
+	<div class="medium-4 columns">
 		<div class="item-wrapper">
 			<div class="image-wrapper">
-				<a href="#"><img src="<%= group.group_image %>"></a>
-				<a href="#"><h3><%= group.name %></h3></a>
+				<a href="/groups/<%= group.id %>"><img src="<%= group.group_image %>"></a>
+				<a href="/groups/<%= group.id %>"><h3><%= group.name %></h3></a>
 				<% if group.offline %>
-				<p>Offline</p>
+				<h6>Offline,
 				<% else %>
-				<p>Online</p>
+				<h6>Online,
 				<% end %>
-				<p><%= group.group_type %></p>
+				<%= group.group_type %></h6>
+				<h6><%= group.subscriptions.count %> members</h6>
 			</div>
 		</div>
 	</div>
 	<% end %>
 	<% end %>
 </div>
-
-<ul>
-	<li>
-		<% @groups.each do |group| %>
-		<% if group.group_type != "hidden" %>
-		<ul>
-			<li><img src="<%= group.group_image %>"></li>
-			<li><a href="/groups/<%= group.id %>"><%= group.name %></a></li>
-			<% if group.offline %>
-			<li>Offline</li>
-			<% else %>
-			<li>Online</li>
-			<% end %>
-			<li><%= group.group_type %></li>
-		</ul>
-		<% end %>
-		<% end %>
-	</li>
-</ul>
