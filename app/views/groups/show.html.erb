@@ -1,4 +1,4 @@
-<div class="large-12 group-hero" style="background: url(<%= @group.group_image %>); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #333333;">
+<div class="large-12 group-hero" style="background: url(<% if @group.group_image.length > 0 %><%= @group.group_image %><% else %>'/Default_Group_image.jpg'<% end %>); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #333333;">
 	<h1><%= @group.name %></h1>
 </div>
 
@@ -13,7 +13,16 @@
 			<%= @group.group_type %></li>
 			<li>Members: <%= @group.subscriptions.count %></li>
 			<li><%= @group.description %></li>
+			<% if current_user %>
+			<% if current_user.subscriptions.find_by(group_id: @group.id) == nil %>
 			<%= link_to "Join Group", join_group_path, method: :post %>
+			<% else %>
+			<%= link_to "Leave Group", leave_group_path, method: :delete %>
+			<% end %>
+			<% if current_user.subscriptions.find_by(group_id: @group.id) && current_user.subscriptions.find_by(group_id: @group.id).user_type != "user" %>
+			<%= link_to "Edit Group", edit_group_path %>
+			<% end %>
+			<% end %>
 		</ul>
 	</div>
 	<div class="medium-8 columns group-current-book">

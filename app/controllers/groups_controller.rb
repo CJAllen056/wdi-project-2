@@ -56,6 +56,18 @@ class GroupsController < ApplicationController
 		end
 	end
 
+	def remove_user_from_group
+		@group = Group.find(params[:id])
+		@subscription = Subscription.where(user_id: current_user.id, group_id: @group.id)
+		if Subscription.destroy(@subscription)
+			flash[:success] = "You have been unsubscribed!"
+			redirect_to root_path
+		else
+			flash[:danger] = "There was an error, please try again"
+			redirect_to group_path(@group.id)
+		end
+	end
+
 	private
 	def group_params
 		params.require(:group).permit(:name, :description, :group_image, :offline, :group_type, :current_book_id)
