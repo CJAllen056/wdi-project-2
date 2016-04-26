@@ -1,49 +1,61 @@
-<ul>
-	<li><img src="<%= @group.group_image %>"></li>
-	<li><%= @group.name %></li>
-	<% if @group.offline %>
-	<li>Offline</li>
-	<% else %>
-	<li>Online</li>
-	<% end %>
-	<li><%= @group.group_type %></li>
-	<li><%= @group.description %></li>
-	<li><%= link_to "Join Group", join_group_path, method: :post %></li>
-	<li><%= link_to "Edit Group", edit_group_path %></li>
-</ul>
+<div class="large-12 group-hero" style="background: url(<%= @group.group_image %>); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #333333;">
+	<h1><%= @group.name %></h1>
+</div>
 
-<h1>Current Book</h1>
-<% if @group.current_book_id %>
-<ul>
-	<li><img src="<%= @current_book.cover_image %>"></li>
-	<li><%= @current_book.title %></li>
-	<li><%= @current_book.author %></li>
-	<li><%= @current_book.release_date %></li>
-	<li><%= @current_book.publisher %></li>
-	<li><%= @current_book.description %></li>
-</ul>
-<% else %>
-<a href="/books">Select a book to read</a>
-<% end %>
+<div class="row group-info">
+	<div class="medium-4 columns group-stats">
+		<ul>
+			<% if @group.offline %>
+			<li>Offline,
+			<% else %>
+			<li>Online,
+			<% end %>
+			<%= @group.group_type %></li>
+			<li>Members: <%= @group.subscriptions.count %></li>
+			<li><%= @group.description %></li>
+		</ul>
+	</div>
+	<div class="medium-8 columns group-current-book">
+		<% if @group.current_book_id %>
+		<ul>
+			<li class="book-image"><img src="<%= @current_book.cover_image %>"></li>
+			<li><h1>Current Book</h1></li>
+			<li><%= @current_book.title %></li>
+			<li><%= @current_book.author %></li>
+			<li><%= @current_book.release_date %></li>
+			<li><%= @current_book.publisher %></li>
+			<li><%= @current_book.description %></li>
+		</ul>
+		<% else %>
+		<p> You don't seem to have a current book </p>
+		<a href="/books">Select a book to read</a>
+		<% end %>
+	</div>
+</div>
 
+<div class="row group-previous-books">
 <h1>All Books</h1>
-<ul>
 	<% @group.books.each do |book| %>
-	<li><img src="<%= book.cover_image %>"></li>
-	<li><%= book.title %></li>
-	<li><%= book.author %></li>
-	<li><%= book.release_date %></li>
-	<li><%= book.publisher %></li>
-	<li><%= book.description %></li>
+	<div class="medium-4 columns">
+		<div class="item-wrapper">
+			<li class="book-image"><img src="<%= book.cover_image %>"></li>
+			<li><%= book.title %></li>
+			<li><%= book.author %></li>
+			<li><%= book.release_date %></li>
+			<li><%= book.publisher %></li>
+		</div>
+	</div>
 	<% end %>
-</ul>
+</div>
 
-<ul>
+<div class="row group-users">
+	<h1>Group Members</h1>
 	<% @group.subscriptions.each do |sub| %>
 	<% user = User.find(sub.user_id) %>
-
-	<li><img src= "<%= user.profile_picture %>"></li>
-	<li><%= user.username %></li>
-	<li><%= user.fname %> <% user.lname %></li>
+	<div class="medium-4 columns">
+		<li><img src= "<%= user.profile_picture %>"></li>
+		<li><%= user.username %></li>
+		<li><%= user.fname %> <% user.lname %></li>
+	</div>
 	<% end %>
-</ul>
+</div>
