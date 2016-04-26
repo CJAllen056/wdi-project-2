@@ -13,6 +13,7 @@
 			<%= @group.group_type %></li>
 			<li>Members: <%= @group.subscriptions.count %></li>
 			<li><%= @group.description %></li>
+			<%= link_to "Join Group", join_group_path, method: :post %>
 		</ul>
 	</div>
 	<div class="medium-8 columns group-current-book">
@@ -53,9 +54,13 @@
 	<% @group.subscriptions.each do |sub| %>
 	<% user = User.find(sub.user_id) %>
 	<div class="medium-4 columns">
-		<li><img src= "<%= user.profile_picture %>"></li>
+		<% if user.profile_picture.length > 0 %>
+		<li><img src="<%= user.profile_picture %>"></li>
+		<% else %>
+		<li><img src="/user_icon.png"></li>
+		<% end %>
 		<li><%= user.username %></li>
-		<li><%= user.fname %> <% user.lname %></li>
+		<li><%= user.fname %> <%= user.lname %></li>
 	</div>
 	<% end %>
 </div>
