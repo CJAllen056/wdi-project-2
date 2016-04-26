@@ -20,7 +20,8 @@
 
 <ul>
 	<li>
-		<% @user.groups.each do |group| %>
+		<% @user.subscriptions.each do |sub| %>
+		<% group = Group.find(sub.group_id) %>
 		<ul>
 			<li><img src="<%= group.group_image %>"></li>
 			<li><%= group.name %></li>

@@ -44,9 +44,21 @@ class GroupsController < ApplicationController
 	def delete
 	end
 
-	private
-		def group_params
-			params.require(:group).permit(:name, :description, :group_image, :offline, :group_type, :current_book_id)
+	def add_user_to_group
+		@group = Group.find(params[:id])
+		@group.subscriptions.new(user_id: current_user.id, group_id: @group.id, user_type: "user")
+		if @group.save
+			flash[:success] = "You have been subscribed!"
+			redirect_to group_path(@group.id)
+		else
+			flash[:danger] = "You have not been subscribed, please try again"
+			redirect_to group_path(@group.id)
 		end
+	end
+
+	private
+	def group_params
+		params.require(:group).permit(:name, :description, :group_image, :offline, :group_type, :current_book_id)
+	end
 
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	resources :users
 
 	resources :groups
+	post "/groups/:id/user", to: "groups#add_user_to_group", as: :join_group
 
 	resources :books
 
