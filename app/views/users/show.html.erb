@@ -3,29 +3,45 @@
 	<li><%= @user.username %></li>
 	<li><%= @user.fname %> <%= @user.lname %></li>
 	<li><%= @user.email %></li>
-</ul>
+</ul
 
-<ul>
-	<li>
+<div class="row group-previous-books">
+<h1>My Books</h1>
 	<% @user.books.each do |book| %>
-	<ul>
-		<li><img src="<%= book.cover_image %>"></li>
-		<li><%= book.title %></li>
-		<li><%= book.author %></li>
-		<li><%= book.author %></li>
-	</ul>
+	<div class="medium-4 columns">
+		<div class="item-wrapper">
+			<li class="book-image"><img src="<%= book.cover_image %>"></li>
+			<li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
+			<li><%= book.author %></li>
+		</div>
+	</div>
 	<% end %>
-	</li>
-</ul>
+</div>
 
-<ul>
-	<li>
-		<% @user.subscriptions.each do |sub| %>
-		<% group = Group.find(sub.group_id) %>
-		<ul>
-			<li><img src="<%= group.group_image %>"></li>
-			<li><%= group.name %></li>
-		</ul>
-		<% end %>
-	</li>
-</ul>
+<div class="row">
+<h1>My Groups</h1>
+<% @user.subscriptions.each do |sub| %>
+<% group = Group.find(sub.group_id) %>
+	<div class="medium-4 columns">
+		<div class="item-wrapper">
+			<div class="image-wrapper">
+				<a href="/groups/<%= group.id %>">
+				<% if group.group_image.length > 0 %>
+				<img src="<%= group.group_image %>">
+				<% else %>
+				<img src="/Default_Group_image.jpg">
+				<% end %>
+				</a>
+				<a href="/groups/<%= group.id %>"><h3><%= group.name %></h3></a>
+				<% if group.offline %>
+				<h6>Offline,
+				<% else %>
+				<h6>Online,
+				<% end %>
+				<%= group.group_type %></h6>
+				<h6><%= group.subscriptions.count %> members</h6>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>

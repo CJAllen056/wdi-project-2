@@ -30,7 +30,7 @@
 				<a href="#"><%= current_user.username %></a>
 				<ul class="dropdown">
 					<li><%= link_to "My Account", user_path(current_user) %></li>
-					<li><%= link_to "Edit Account", edit_user_path(current_user) %></li>
+					<li><%= link_to "Edit Account", edit_user_registration_path(current_user) %></li>
 					<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 				</ul>
 			</li>
