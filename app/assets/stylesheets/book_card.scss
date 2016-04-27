@@ -1,5 +1,9 @@
 @import "constants";
 
+.book-card.columns + .book-card.columns:last-child {
+	float: left;
+}
+
 .book-card {
 	height: 260px;
 	color: black;
@@ -9,16 +13,17 @@
 		display: inline-block;
 		height: 230px;
 		width: 100%;
-		border-radius: 4px;
-		background-image: radial-gradient(circle farthest-corner, white, #E4E4E4);
+		// border-radius: 30px;
+		// background-image: radial-gradient(circle farthest-corner, white, #E4E4E4);
 		color: black;
-		box-shadow: 0px 0px 10px #888888;
+		// box-shadow: 0px 0px 10px #888888;
 
 		&:hover {
-			box-shadow: 0px 0px 20px #888888;
+			box-shadow: 0px 0px 7px #888888;
 			color: black;
 			&:active {
 				box-shadow: 0px 0px 5px #888888;
+				color: black;
 			}
 		}
 

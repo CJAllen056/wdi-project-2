@@ -1,4 +1,11 @@
+@import "constants";
+
 main {
-  max-width: 960px;
-  margin: 0 auto;
+	max-width: 960px;
+	margin: 0 auto;
+	background: white;
+}
+
+body {
+	background: $red1;
 }

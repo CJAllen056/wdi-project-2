@@ -1,3 +1,7 @@
+.group-card.columns + .group-card.columns:last-child {
+	float: left;
+}
+
 .group-card {
 	margin-bottom: 15px;
 	a {
