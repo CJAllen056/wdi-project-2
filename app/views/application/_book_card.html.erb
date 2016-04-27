@@ -1,0 +1,17 @@
+<% @books.each do |book| %>
+<div class="book-card large-4 small-12 medium-6 columns">
+	<a href="/books/<%= book.id %>">
+		<div class="book-card-title small-12 columns">
+			<p><%= book.title %></p>
+		</div>
+		<div class="book-card-image small-5 columns">
+			<img src="<%= book.cover_image %>">
+		</div>
+		<div class="book-card-info small-7 columns">
+			<p><%= book.author %></p>
+			<p><%= book.release_date %></p>
+			<p><%= book.publisher %></p>
+		</div>
+	</a>
+</div>
+<% end %>

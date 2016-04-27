@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
 
 	def show
 		@group = Group.find(params[:id])
+		@books = @group.books
 		if @group.current_book_id
 			@current_book = Book.find(@group.current_book_id)
 		end

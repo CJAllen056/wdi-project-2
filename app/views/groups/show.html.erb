@@ -45,17 +45,7 @@
 
 <div class="row group-previous-books">
 <h1>All Books</h1>
-	<% @group.books.each do |book| %>
-	<div class="medium-4 columns">
-		<div class="item-wrapper">
-			<li class="book-image"><img src="<%= book.cover_image %>"></li>
-			<li><%= book.title %></li>
-			<li><%= book.author %></li>
-			<li><%= book.release_date %></li>
-			<li><%= book.publisher %></li>
-		</div>
-	</div>
-	<% end %>
+<%= render "book_card", object: @books %>
 </div>
 
 <div class="row group-users">
