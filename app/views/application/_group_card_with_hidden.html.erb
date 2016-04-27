@@ -3,8 +3,10 @@
 	<a href="/groups/<%= group.id %>">
 		<div class="group-card-picture" style="background-image: url(<% if group.group_image.length > 0 %><%= group.group_image %><% else %>'/Default_Group_image.jpg'<% end %>)">
 			<div class="group-card-gradient">
-				<h6><%= group.name %></h6>
-				<p><%= group.subscriptions.count %> members</p>
+				<div class="group-card-absolute">
+					<h6><%= group.name %></h6>
+					<p><%= group.subscriptions.count %> members</p>
+				</div>
 			</div>
 		</div>
 	</a>
