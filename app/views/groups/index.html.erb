@@ -9,23 +9,5 @@
 <% end %>
 
 <div class="row">
-	<% @groups.each do |group| %>
-	<% if group.group_type != "hidden" %>
-	<div class="medium-4 columns">
-		<div class="item-wrapper">
-			<div class="image-wrapper">
-				<a href="/groups/<%= group.id %>"><img src="<%= group.group_image %>"></a>
-				<a href="/groups/<%= group.id %>"><h3><%= group.name %></h3></a>
-				<% if group.offline %>
-				<h6>Offline,
-				<% else %>
-				<h6>Online,
-				<% end %>
-				<%= group.group_type %></h6>
-				<h6><%= group.subscriptions.count %> members</h6>
-			</div>
-		</div>
-	</div>
-	<% end %>
-	<% end %>
+<%= render "group_card_no_hidden", object: @groups %>
 </div>

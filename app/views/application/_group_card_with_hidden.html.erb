@@ -1,0 +1,14 @@
+<% @groups.each do |group| %>
+<div class="group-card large-4 medium-6 small-12 columns">
+	<a href="/groups/<%= group.id %>">
+		<div class="group-card-picture" style="background-image: url(<%= group.group_image %>)">
+			<h6>
+			<%= group.name %>
+			</h6>
+		</div>
+		<div class="group-card-info">
+			<p><% if group.offline %> Offline, <% else %> Online, <% end %> <%= group.group_type %>, <%= group.subscriptions.count %> members</p>
+		</div>
+	</a>
+</div>
+<% end %>

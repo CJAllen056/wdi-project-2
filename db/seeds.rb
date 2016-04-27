@@ -164,21 +164,21 @@ groups = [
 		name: "Sci-Fi Readers Group",
 		description: "We are a group of sci-fi fiction enthusiasts who mainly read new sci-fi releases as well as some classics.",
 		offline: false,
-		group_type: "public",
+		group_type: "Public",
 		current_book_id: 2
 	},
 	{
 		name: "London Womens Reading Group",
 		description: "This group is exclusively for women. We read a wide range of genres and hold regular voting sessions to choose which book we will be reading.",
 		offline: true,
-		group_type: "private",
+		group_type: "Private",
 		current_book_id: 3
 	},
 	{
 		name: "Book Club Staff Group",
 		description: "Private group for staff members at The Book Club",
 		offline: true,
-		group_type: "hidden",
+		group_type: "Hidden",
 		current_book_id: 4
 	}
 ]
