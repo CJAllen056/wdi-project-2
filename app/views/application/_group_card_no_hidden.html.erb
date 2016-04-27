@@ -2,13 +2,13 @@
 <% if group.group_type != "Hidden" %>
 <div class="group-card large-4 medium-6 small-12 columns">
 	<a href="/groups/<%= group.id %>">
-		<div class="group-card-picture" style="background-image: url(<% if group.group_image.length > 0 %><%= group.group_image %><% else %>'/Default_Group_image.jpg'<% end %>)">
-			<h6>
-			<%= group.name %>
-			</h6>
-		</div>
-		<div class="group-card-info">
-			<p><% if group.offline %> Offline, <% else %> Online, <% end %> <%= group.group_type %>, <%= group.subscriptions.count %> members</p>
+		<div class="group-card-picture" style="background-image: url(<%= group.group_image %>)">
+			<div class="group-card-gradient">
+			<div class="group-card-absolute">
+					<h6><%= group.name %></h6>
+					<p><%= group.subscriptions.count %> members</p>
+				</div>
+			</div>
 		</div>
 	</a>
 </div>

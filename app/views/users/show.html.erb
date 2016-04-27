@@ -3,14 +3,14 @@
 	<li><%= @user.username %></li>
 	<li><%= @user.fname %> <%= @user.lname %></li>
 	<li><%= @user.email %></li>
-</ul
-
-<div class="row group-previous-books">
-<h1>My Books</h1>
-<%= render "book_card", object: @books %>
-</div>
+</ul>
 
 <div class="row">
 <h1>My Groups</h1>
 <%= render "group_card_with_hidden", object: @groups %>
+</div>
+
+<div class="row group-previous-books">
+<h1>My Books</h1>
+<%= render "book_card", object: @books %>
 </div>
