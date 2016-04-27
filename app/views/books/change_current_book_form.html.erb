@@ -1,0 +1,9 @@
+<%= form_tag do %>
+
+<fieldset class="form-group">
+	<%= label_tag "Please choose a group to add this book to" %>
+	<%= collection_select  :group, :id, @groups, :id, :name, prompt: true %>
+</fieldset>
+	<%= submit_tag %>
+
+<% end %>

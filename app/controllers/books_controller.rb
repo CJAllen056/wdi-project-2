@@ -40,6 +40,32 @@ class BooksController < ApplicationController
    def delete
    end
 
+   def change_current_book_form
+      @book = Book.find(params[:id])
+      @subscriptions = current_user.subscriptions.where(user_type: "founder")
+      @ids = @subscriptions.map { |sub| sub.id }
+      @groups = []
+      @ids.each do |id|
+         @groups.push Group.find(id)
+      end
+      @group = Group.new
+   end
+
+   def change_current_book
+      @book = Book.find(params[:id])
+      @group = Group.find(params[:group][:id])
+
+      @group.current_book_id = params[:id]
+      @group.books << @book
+      if @group.save!
+         flash[:success] = "Changes have been made successfully"
+         redirect_to group_path(@group)
+      else
+         flash[:danger] = "There was an error, please try again"
+         redirect_to :back
+      end
+   end
+
    private
       def book_params
          params.require(:book).permit(:title, :author, :release_date, :description, :publisher, :cover_image)
