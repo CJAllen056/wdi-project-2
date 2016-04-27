@@ -1,41 +1,41 @@
-<div class="large-12 group-hero" style="background: url(<% if @group.group_image.length > 0 %><%= @group.group_image %><% else %>'/Default_Group_image.jpg'<% end %>); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #333333;">
+<div class="large-12 group-hero" style="background: url(<% if @group.group_image.length > 0 %><%= @group.group_image %><% else %>'/Default_Group_image.jpg'<% end %>); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #003B3B;">
 	<h1><%= @group.name %></h1>
 </div>
 
 <div class="row group-info">
-	<div class="medium-4 columns group-stats">
+	<div class="medium-3 small-12 columns group-stats">
 		<ul>
+			<li>Members: <%= @group.subscriptions.count %></li>
 			<% if @group.offline %>
 			<li>Offline,
 			<% else %>
 			<li>Online,
 			<% end %>
 			<%= @group.group_type %></li>
-			<li>Members: <%= @group.subscriptions.count %></li>
 			<li><%= @group.description %></li>
 			<% if current_user %>
 			<% if current_user.subscriptions.find_by(group_id: @group.id) == nil %>
-			<%= link_to "Join Group", join_group_path, method: :post %>
+			<%= link_to "Join Group", join_group_path, method: :post, class: "group-button" %>
 			<% else %>
-			<%= link_to "Leave Group", leave_group_path, method: :delete %>
+			<%= link_to "Leave Group", leave_group_path, method: :delete, class: "group-button" %>
 			<% end %>
 			<% if current_user.subscriptions.find_by(group_id: @group.id) && current_user.subscriptions.find_by(group_id: @group.id).user_type != "user" %>
-			<%= link_to "Edit Group", edit_group_path %>
+			<%= link_to "Edit Group", edit_group_path, class: "group-button" %>
 			<% end %>
 			<% end %>
 		</ul>
 	</div>
-	<div class="medium-8 columns group-current-book">
+	<div class="medium-9 small-12 columns group-current-book">
 		<% if @group.current_book_id %>
-		<ul>
-			<li class="book-image"><img src="<%= @current_book.cover_image %>"></li>
-			<li><h1>Current Book</h1></li>
-			<li><%= @current_book.title %></li>
-			<li><%= @current_book.author %></li>
-			<li><%= @current_book.release_date %></li>
-			<li><%= @current_book.publisher %></li>
-			<li><%= @current_book.description %></li>
-		</ul>
+		<div class="small-4 columns current-book-image">
+			<img src="<%= @current_book.cover_image %>">
+		</div>
+		<div class="small-8 columns current-book-info">
+			<h1>Currently Reading</h1>
+			<h3><%= @current_book.title %></h3>
+			<h5><%= @current_book.author %>, <%= @current_book.release_date %>, <%= @current_book.publisher %></h5>
+			<p class="current-book-description show-for-medium-up"><%= @current_book.description %></p>
+		</div>
 		<% else %>
 		<p> You don't seem to have a current book </p>
 		<a href="/books">Select a book to read</a>
@@ -44,12 +44,12 @@
 </div>
 
 <div class="row group-previous-books">
-<h1>All Books</h1>
+<h1 class="section-header">All Previous Books</h1>
 <%= render "book_card", object: @books %>
 </div>
 
 <div class="row group-users">
-	<h1>Group Members</h1>
+	<h1 class="section-header">Group Members</h1>
 	<% @group.subscriptions.each do |sub| %>
 	<% user = User.find(sub.user_id) %>
 	<div class="medium-4 columns">

@@ -1,10 +1,9 @@
+@import "constants";
+
 .group-hero {
   height: 500px;
   position: relative;
-  border-radius: 5px 5px 0 0;
-  margin-top: 2px;
-  background-image: radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
-  box-shadow: inset 0 0 80px rgba(0, 0, 0, 1);
+  // box-shadow: inset 0 0 80px rgba(0, 0, 0, 1);
 
   h1 {
     background-color: rgba(0, 0, 0, 0.56);
@@ -21,7 +20,9 @@
 }
 
 .group-info {
-  background-color: beige;
+  height: 400px;
+  // min-height: 400px;
+  background: $green1;
 
   ul {
     list-style: none;
@@ -30,14 +31,98 @@
   }
 
   .group-stats {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 
+
+    .group-button {
+      display: inline-block;
+      width: 90px;
+      height: 40px;
+      background: $turquoise3;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 3px;
+      color: black;
+      margin-bottom: 3px;
+
+      &:hover {
+        box-shadow: 0px 0px 5px $green4;
+      }
+    }
   }
+
   .group-current-book {
-    .book-image {
+    height: 100%;
+
+    .current-book-info {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      max-height: 100%;
+      overflow: hidden;
+
+      .current-book-description {
+        font-size: 14px;
+      }
+    }
+
+    .current-book-image {
       float: left;
+      height: 100%;
+
       img {
-        height: 200px;
+        max-height: 90%;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        box-shadow: 0px 0px 5px $green4;
+        margin-right: 10px;
       }
     }
   }
 }
+
+.group-users {
+  background: $turquoise1;
+}
+
+.section-header {
+  text-align: center;
+}
+
+
+
+
+@media (max-width: 640px){
+
+  .group-info {
+    height: initial;
+    padding: 2em 0;
+  }
+  .group-info .group-stats {
+    position: static;
+    top: initial;
+    transform: translateY(0%);
+  }
+
+  .group-info .group-current-book {
+    height: initial;
+  }
+  .group-info .group-current-book .current-book-info {
+    position: static;
+    top: initial;
+    transform: translateY(0%);
+  }
+
+  .group-info .group-current-book .current-book-image img {
+    position: static;
+    top: initial;
+    transform: translateY(0%);
+  }
+}
+
+
+
+
