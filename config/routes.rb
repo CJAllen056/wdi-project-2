@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 	delete "/groups/:id/user", to: "groups#remove_user_from_group", as: :leave_group
 
 	resources :books
-	get "/books/:id/groups/edit", to: "books#change_current_book_form"
+	get "/books/:id/groups/edit", to: "books#change_current_book_form", as: :add_book
 	post "/books/:id/groups/edit", to: "books#change_current_book"
 
 end

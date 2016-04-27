@@ -244,14 +244,14 @@ modelled_books[2].groups << modelled_groups[1]
 modelled_books[4].groups << modelled_groups[2]
 
 subscriptions = [
-	{ user_id: 1, group_id: 1, user_type: "founder" },
+	{ user_id: 1, group_id: 1, user_type: "admin" },
 	{ user_id: 2, group_id: 1, user_type: "user" },
 	{ user_id: 4, group_id: 1, user_type: "admin" },
 	{ user_id: 5, group_id: 1, user_type: "user" },
 	{ user_id: 6, group_id: 1, user_type: "user" },
 	{ user_id: 2, group_id: 2, user_type: "user" },
-	{ user_id: 3, group_id: 2, user_type: "founder" },
-	{ user_id: 1, group_id: 3, user_type: "founder" },
+	{ user_id: 3, group_id: 2, user_type: "admin" },
+	{ user_id: 1, group_id: 3, user_type: "admin" },
 	{ user_id: 3, group_id: 3, user_type: "user" },
 	{ user_id: 4, group_id: 3, user_type: "user" }
 ]

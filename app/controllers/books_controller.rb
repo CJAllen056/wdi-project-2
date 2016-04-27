@@ -42,8 +42,8 @@ class BooksController < ApplicationController
 
    def change_current_book_form
       @book = Book.find(params[:id])
-      @subscriptions = current_user.subscriptions.where(user_type: "founder")
-      @ids = @subscriptions.map { |sub| sub.id }
+      @subscriptions = current_user.subscriptions.where(user_type: "admin")
+      @ids = @subscriptions.map { |sub| sub.group_id }
       @groups = []
       @ids.each do |id|
          @groups.push Group.find(id)

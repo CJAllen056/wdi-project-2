@@ -9,6 +9,9 @@
 			<li><%= @book.release_date %></li>
 			<li><%= @book.publisher %></li>
 			<li><%= @book.description %></li>
+			<% if current_user.subscriptions && current_user.subscriptions.where(user_type: "admin") %>
+			<li><%= link_to "Add Book to Your Group", add_book_path %></li>
+			<% end %>
 		</ul>
 	</div>
 </div>
