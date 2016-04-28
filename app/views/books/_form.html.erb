@@ -7,36 +7,35 @@
 <% end %>
 <% end %>
 
-<fieldset class="form-group">
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-</fieldset>
-
-<fieldset class="field">
-	<%= f.label :author %><br />
-	<%= f.text_field :author %>
-</fieldset>
-
-<fieldset class="form-group">
-	<%= f.label :description %>
-	<%= f.text_area :description %>
-</fieldset>
-
-<fieldset class="field">
-	<%= f.label :release_date %><br />
-	<%= f.number_field :release_date %>
-</fieldset>
-
-<fieldset class="form-group">
-	<%= f.label :publisher %>
-	<%= f.text_field :publisher %>
-</fieldset>
-
-<fieldset class="form-group">
-	<%= f.label :cover_image %>
-	<%= f.file_field :cover_image %>
-</fieldset>
+<div class="row">
+	<fieldset class="form-group large-6 large-offset-3 medium-8 medium-offset-2">
+		<div>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+		</div>
+		<div>
+			<%= f.label :author %>
+			<%= f.text_field :author %>
+		</div>
+		<div>
+			<%= f.label :description %>
+			<%= f.text_area :description %>
+		</div>
+		<div>
+			<%= f.label :release_date %>
+			<%= f.number_field :release_date %>
+		</div>
+		<div>
+			<%= f.label :publisher %>
+			<%= f.text_field :publisher %>
+		</div>
+		<div>
+			<%= f.label :cover_image %>
+			<%= f.file_field :cover_image %>
+		</div>
 
 <%= f.submit class: "btn btn-primary" %>
+	</fieldset>
+</div>
 
 <% end %>

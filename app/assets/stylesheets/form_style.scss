@@ -9,7 +9,7 @@ input[type=text], select {
 }
 
 fieldset {
-	margin: 0 auto;
+	margin-bottom: 50px;
 
 	p {
 		margin: 0;
@@ -20,7 +20,7 @@ fieldset {
 .submit-button {
 	text-align: right;
 
-	input[type=submit] {
+	input[type=submit], .delete-account-button {
 		border: none;
 		display: inline-block;
 		height: 40px;
