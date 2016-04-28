@@ -1,13 +1,24 @@
-<%= search_form_for @q do |f| %>
-  <p>
-    <%= f.label :title_or_author_cont %>
-    <%= f.text_field :title_or_author_cont %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="search-bar row">
+	<%= search_form_for @q do |f| %>
+	<p class="medium-4 columns form-input">
+		<%= f.label :title_cont %>
+		<%= f.text_field :title_cont %>
+	</p>
+	<p class="medium-4 columns form-input">
+		<%= f.label :author_cont %>
+		<%= f.text_field :author_cont %>
+	</p>
+	<p class="medium-4 columns form-input">
+		<%= f.label :genre %>
+		<%= f.collection_select :genres_name_cont, @genres, :name, :name, prompt: true %>
+	</p>
+	<p class="medium-4 columns submit-button">
+		<%= f.submit %>
+	</p>
+	<% end %>
+</div>
 
 <div class="row group-previous-books">
 	<%= render "book_card", object: @books %>
 </div>
+

@@ -1,13 +1,15 @@
 class BooksController < ApplicationController
 
    def index
-      @q = Book.search(params[:q])
-      @books = @q.result(distinct: true)
+      @q = Book.ransack(params[:q])
+      @books = @q.result(distinct: true).includes(:genres)
+      @genres = Genre.all
    end
 
    def show
       @book = Book.find(params[:id])
       @groups = @book.groups
+
    end
 
    def new
