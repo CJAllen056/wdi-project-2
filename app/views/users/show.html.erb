@@ -1,16 +1,26 @@
-<ul>
-	<li><img src="<%= @user.profile_picture %>"></li>
-	<li><%= @user.username %></li>
-	<li><%= @user.fname %> <%= @user.lname %></li>
-	<li><%= @user.email %></li>
-</ul>
 
-<div class="row">
-<h1>My Groups</h1>
+<div class="user-details row">
+	<div class="user-details-image medium-6 columns">
+		<% if @user.profile_picture.length > 0 %>
+		<img src="<%= @user.profile_picture %>">
+		<% else %>
+		<img src="/user_icon.png">
+		<% end %>
+	</div>
+	<div class="user-details-info medium-6 columns">
+		<h2><%= @user.username %></h2>
+		<h3><%= @user.fname %> <%= @user.lname %></h3>
+		<h5><%= @user.email %></h5>
+		<p>Member of <%= @user.subscriptions.count %> groups</p>
+	</div>
+</div>
+
+<div class="user-page-groups row">
+<h1 class="section-header">My Groups</h1>
 <%= render "group_card_with_hidden", object: @groups %>
 </div>
 
 <div class="row group-previous-books">
-<h1>My Books</h1>
+<h1 class="section-header">My Books</h1>
 <%= render "book_card", object: @books %>
 </div>
