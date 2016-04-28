@@ -6,29 +6,40 @@
 </div>
 <% end %>
 <% end %>
+<div class="row">
+  <fieldset class="form-group large-6 large-offset-3 medium-8 medium-offset-2">
+    <div class="">
+      <%= f.label :group_name %>
+      <p>Choose a punchy and descriptive title for your group so people know what you're all about!</p>
+      <%= f.text_field :name %>
+    </div>
+    <div class="">
+      <%= f.label :group_description %>
+      <p>This is where you can add any information you want about your group. For example, if you want to focus on a specific genre, this would be a great place to go into detail.</p>
+      <%= f.text_area :description %>
+    </div>
+    <div class="">
+      <%= f.label :group_image %>
+      <p>Your group image will likely be the first thing people notice when they're browsing groups, so make sure to choose a good one!</p>
+      <%= f.file_field :group_image %>
+    </div>
+    <div class="">
+      <%= f.label :offline_or_online? %>
+      <p>Offline groups meet in person, so location is important. Online groups hold their discussion exclusively over the internet, so you can join up from anywhere!</p>
+      <%= f.radio_button :offline, true %>
+      <%= f.label :offline %>
+      <%= f.radio_button :offline, false %>
+      <%= f.label :online %>
 
-<fieldset class="form-group">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</fieldset>
-<fieldset class="field">
-<%= f.label :group_image %><br />
-<%= f.file_field :group_image %>
-</fieldset>
-<fieldset class="form-group">
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-</fieldset>
-<fieldset class="form-group">
-  <%= f.label :offline %>
-  <%= f.radio_button :offline, true %>
-  <%= f.label :online %>
-  <%= f.radio_button :offline, false %>
-</fieldset>
-<fieldset class="form-group">
-  <%= f.label :group_type %>
-  <%= f.select :group_type, ["Public", "Private", "Hidden"] %>
-</fieldset>
-<%= f.submit class: "btn btn-primary" %>
-
+    </div>
+    <div class="">
+      <%= f.label :group_type %>
+      <p>Public groups can be seen by all, and are open to anyone to join. Private groups can be seen by anyone, but require an invite. Hidden groups can only be seen by their own members, and require an invite to join.</p>
+      <%= f.select :group_type, ["Public", "Private", "Hidden"], prompt: true %>
+    </div>
+    <div class="submit-button">
+      <%= f.submit %>
+    </div>
+  </fieldset>
+</div>
 <% end %>

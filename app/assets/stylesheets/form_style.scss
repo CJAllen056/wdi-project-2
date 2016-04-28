@@ -8,13 +8,21 @@ input[type=text], select {
 	margin: 5px 0;
 }
 
+fieldset {
+	margin: 0 auto;
+
+	p {
+		margin: 0;
+		font-size: 11px;
+	}
+}
+
 .submit-button {
 	text-align: right;
 
 	input[type=submit] {
 		border: none;
 		display: inline-block;
-		width: 90px;
 		height: 40px;
 		background: $turquoise3;
 		line-height: 40px;
