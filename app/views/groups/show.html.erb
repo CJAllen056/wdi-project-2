@@ -2,7 +2,7 @@
 	<h1><%= @group.name %></h1>
 </div>
 
-<div class="row group-info">
+<div class="row <% if @group.current_book_id %>group-info<% else %>group-info-no-book<% end %>">
 	<div class="medium-3 small-12 columns group-stats">
 		<ul>
 			<li>Members: <%= @group.subscriptions.count %></li>
@@ -37,16 +37,18 @@
 			<p class="current-book-description show-for-medium-up"><%= @current_book.description %></p>
 		</div>
 		<% else %>
-		<p> You don't seem to have a current book </p>
-		<a href="/books">Select a book to read</a>
+		<h5> You don't have a current book </h5>
+		<a href="/books" class="group-button">Select a book to read</a>
 		<% end %>
 	</div>
 </div>
 
+<% unless @group.books == [] %>
 <div class="row group-previous-books">
 <h1 class="section-header">All Previous Books</h1>
 <%= render "book_card", object: @books %>
 </div>
+<% end %>
 
 <div class="row group-users">
 	<h1 class="section-header">Group Members</h1>

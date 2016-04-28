@@ -1,5 +1,6 @@
 <% flash.each do |name, message| %>
-  <div class="flash-message flash-message-<%= name %>">
+  <div class="flash-message flash-message-<%= name %> alert-box" tabindex="0" aria-live="assertive" role="alertdialog">
     <%= message %>
+    <a href="#" class="close">&times;</a>
   </div>
 <% end %>
