@@ -10,7 +10,11 @@
 		<div class="book-card-info small-7 columns">
 			<p><%= book.author %></p>
 			<p><%= book.release_date %></p>
-			<p><%= book.publisher %></p>
+			<p><%= book.publisher %></p><br>
+			<% book.genres.each do |genre| %>
+			<p class="book-card-genres"><%= genre.name %></p>
+			<% end %>
+			<p></p>
 		</div>
 	</a>
 </div>

@@ -2,11 +2,16 @@
 	<div class="book-page-image medium-4 columns">
 		<img src="<%= @book.cover_image %>">
 	</div>
-	<div class="medium-8 columns">
+	<div class="book-page-info medium-8 columns">
 			<h1><%= @book.title %></h1>
-			<h3><%= @book.author %></h3>
-			<h5><%= @book.release_date %>, <%= @book.publisher %></h5>
-			<p><%= @book.description %></p>
+			<h3><%= @book.author %>, <%= @book.release_date %></h3>
+			<p class="book-page-desc">
+				<% @book.genres.each do |genre| %>
+				<%= genre.name %>, 
+				<% end %>
+			</p>
+			<p class="book-page-desc"><%= @book.description %></p>
+			<p class="book-page-publisher">Publisher: <%= @book.publisher %></p>
 			<% if current_user && current_user.subscriptions && current_user.subscriptions.where(user_type: "admin") %>
 			<p><%= link_to "Read this book in your group", add_book_path %></p>
 			<% end %>
