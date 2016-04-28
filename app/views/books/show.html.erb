@@ -1,22 +1,19 @@
-<div class="row">
-	<div class="medium-4 columns">
+<div class="book-page-main row">
+	<div class="book-page-image medium-4 columns">
 		<img src="<%= @book.cover_image %>">
 	</div>
 	<div class="medium-8 columns">
-		<ul>
-			<li><%= @book.title %></li>
-			<li><%= @book.author %></li>
-			<li><%= @book.release_date %></li>
-			<li><%= @book.publisher %></li>
-			<li><%= @book.description %></li>
-			<% if current_user.subscriptions && current_user.subscriptions.where(user_type: "admin") %>
-			<li><%= link_to "Add Book to Your Group", add_book_path %></li>
+			<h1><%= @book.title %></h1>
+			<h3><%= @book.author %></h3>
+			<h5><%= @book.release_date %>, <%= @book.publisher %></h5>
+			<p><%= @book.description %></p>
+			<% if current_user && current_user.subscriptions && current_user.subscriptions.where(user_type: "admin") %>
+			<p><%= link_to "Read this book in your group", add_book_path %></p>
 			<% end %>
-		</ul>
 	</div>
 </div>
 
 <div class="row">
-<h1>Groups Reading This Book</h1>
+<h1 class="section-header">Groups Reading This Book</h1>
 <%= render "group_card_no_hidden", object: @groups %>
 </div>

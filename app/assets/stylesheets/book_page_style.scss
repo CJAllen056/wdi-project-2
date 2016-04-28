@@ -1,0 +1,14 @@
+@import "constants";
+
+.book-page-main {
+	background: $green1;
+	padding: 20px 0;
+
+	.book-page-image {
+		text-align: center;
+
+		img {
+			max-height: 400px;
+		}
+	}
+}
