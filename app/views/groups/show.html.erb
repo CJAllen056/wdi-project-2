@@ -50,16 +50,17 @@
 
 <div class="row group-users">
 	<h1 class="section-header">Group Members</h1>
-	<% @group.subscriptions.each do |sub| %>
-	<% user = User.find(sub.user_id) %>
-	<div class="medium-4 columns">
-		<% if user.profile_picture.length > 0 %>
-		<li><img src="<%= user.profile_picture %>"></li>
-		<% else %>
-		<li><img src="/user_icon.png"></li>
-		<% end %>
-		<li><%= user.username %></li>
-		<li><%= user.fname %> <%= user.lname %></li>
-	</div>
-	<% end %>
+	<%= render "user_card", object: @users %>
 </div>
+
+
+<!-- 	<div class="medium-4 columns">
+		<%# if user.profile_picture.length > 0 %>
+		<li><img src="<%#= user.profile_picture %>"></li>
+		<%# else %>
+		<li><img src="/user_icon.png"></li>
+		<%# end %>
+		<li><%#= user.username %></li>
+		<li><%#= user.fname %> <%#= user.lname %></li>
+	</div>
+	<%# end %> -->

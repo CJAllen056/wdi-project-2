@@ -1,0 +1,14 @@
+<% @users.each do |user| %>
+<div class="columns user-card-holder">
+	<div class="columns small-8 small-offset-2 user-card">
+		<div class="user-card-picture small-4 columns" style="background: url(<% if user.profile_picture.length > 0 %><%= user.profile_picture %><% else %>'/user_icon.png'<% end %>); background-size: contain; background-position: center; background-repeat: no-repeat;">
+
+		</div>
+		<div class="user-card-info small-8 columns">
+			<p><%= user.username %></p>
+			<p><%= user.fname %> <%= user.lname %></p>
+			<p>Joined <%= user.created_at.day %>/<%= user.created_at.month %>/<%= user.created_at.year %></p>
+		</div>
+	</div>
+</div>
+<% end %>

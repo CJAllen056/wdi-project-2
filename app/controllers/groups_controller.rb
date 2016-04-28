@@ -11,6 +11,8 @@ class GroupsController < ApplicationController
 		if @group.current_book_id
 			@current_book = Book.find(@group.current_book_id)
 		end
+		@subscriptions = @group.subscriptions
+		@users = @subscriptions.map { |sub| User.find(sub.user_id) }
 	end
 
 	def new
